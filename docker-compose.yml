@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  backend:
+    image: ${DOCKER_REGISTRY-}ckmz
+    build:
+      context: .
+      dockerfile: Dockerfile
+  client: 
+    image: client 
+    build:
+      context: ./client-app
+      dockerfile: Dockerfile
+
