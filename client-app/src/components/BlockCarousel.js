@@ -2,47 +2,42 @@
 import "./BlockCarousel.css";
 
 const BlockCarousel = ({ blocks }) => {
-    const [currentBlock, setCurrentBlock] = useState(0);
+  const [currentBlock, setCurrentBlock] = useState(0);
 
-    const handlePrevClick = () => {
-        setCurrentBlock((currentBlock - 1 + blocks.length) % blocks.length);
-    };
+  const handlePrevClick = () => {
+    setCurrentBlock(currentBlock === 0 ? blocks.length - 1 : currentBlock - 1);
+  };
 
-    const handleNextClick = () => {
-        setCurrentBlock((currentBlock + 1) % blocks.length);
-    };
+  const handleNextClick = () => {
+    setCurrentBlock(currentBlock === blocks.length - 1 ? 0 : currentBlock + 1);
+  };
 
-    const handleLeftClick = () => {
-        setCurrentBlock((currentBlock - 1 + blocks.length) % blocks.length);
-    };
+  return (
+    <div className="block-carousel">
+      <h1>Новости</h1>
 
-    const handleRightClick = () => {
-        setCurrentBlock((currentBlock + 1) % blocks.length);
-    };
-
-    return (
-        <div className="block-carousel">
-            <h1>Новости</h1>
-
-            <div className="block-slider">
-                <div className="block left-block" onClick={handleLeftClick}>
-                    {blocks[(currentBlock - 1 + blocks.length) % blocks.length]}
-                </div>
-                <div className="block center-block">{blocks[currentBlock]}</div>
-                <div className="block right-block" onClick={handleRightClick}>
-                    {blocks[(currentBlock + 1) % blocks.length]}
-                </div>
+      <div className="block-slider">
+        <div className="blocks-container" style={{ transform: `translateX(${-100 / 3 * currentBlock}%)` }}>
+          {blocks.map((block, index) => (
+            <div
+              className={`block ${index === currentBlock ? "center-block" : index === currentBlock - 1 ? "left-block" : "right-block"}`}
+              key={index}
+            >
+              {block}
             </div>
-            <div className="slider-controls">
-                <button className="slider-control" onClick={handlePrevClick}>
-                    {"<"}
-                </button>
-                <button className="slider-control" onClick={handleNextClick}>
-                    {">"}
-                </button>
-            </div>
+          ))}
         </div>
-    );
+      </div>
+      <div className="slider-controls">
+        <button className="slider-control" onClick={handlePrevClick}>
+          {"<"}
+        </button>
+        <button className="slider-control" onClick={handleNextClick}>
+          {">"}
+        </button>
+      </div>
+    </div>
+  );
 };
 
 export default BlockCarousel;
