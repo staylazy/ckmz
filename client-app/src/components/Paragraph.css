@@ -1,0 +1,29 @@
+﻿p {
+    font-family: 'Open Sans Condensed';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 140%;
+    letter-spacing: 0.1em;
+    color: #FFFFFF;
+    width: 70%;
+}
+
+h1 {
+    font-family: 'Open Sans Condensed';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 140%;
+    text-align: center;
+    letter-spacing: 0.15em;
+    color: #FFFFFF;
+}
+
+.para {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+}

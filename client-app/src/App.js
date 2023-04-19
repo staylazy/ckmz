@@ -1,24 +1,22 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
+import Navbar from './components/NavBar';
+import BlockCarousel from './components/BlockCarousel';
+import ImageViewer from './components/ImageViewer';
+import Paragraph from './components/Paragraph';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    const blocks = ['Block 1', 'Block 2', 'Block 3', 'Block 4', 'Block 5'];
+    return (
+      <div>
+            <Navbar />
+            <BlockCarousel blocks={blocks} />
+            <Paragraph />
+            <ImageViewer />
+            <div>
+                <h1 className='footer'>Made by TUSUR</h1>
+            </div>
+      </div>
   );
 }
 
