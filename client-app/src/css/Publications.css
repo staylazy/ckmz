@@ -1,0 +1,41 @@
+body {
+    background-image: url('../images/home-background.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.footer {
+    font-family: 'Open Sans Condensed';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 140%;
+    letter-spacing: 0.1em;
+    opacity: 0.4
+}
+
+.body{
+    padding-top: 2%;
+    overflow:hidden;
+    width: 100%;
+}
+
+.body-left{
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 20%;
+    height: 500px;
+    float: left;
+    margin-left: 10%;
+}
+
+.body-right{
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 55%;
+    height: 500px;
+    margin-right: 10%;
+    float: right;
+}
