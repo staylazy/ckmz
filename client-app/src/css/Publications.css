@@ -1,0 +1,149 @@
+.content {
+    background-image: url('../images/home-background.jpg');
+    background-size: cover;
+    background-position: center;
+    padding-top: 2%;
+    overflow:hidden;
+    width: 100%;
+}
+.news {
+    color:#fff;
+    font-family: Open Sans Condensed;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.two-columns{
+    border: 2px solid #FFFFFF;
+    border-radius: 15px;
+    height: 500px;
+    float: left;
+    margin-left: 10%;
+    height: 73vh;
+    margin: 0;
+    max-width: 60%;
+}
+
+.two-columns__title {
+    width: 355px;
+    height: 59px;
+    text-align: center;
+    font-size: 33px;
+    font-weight: 700;
+    line-height: 140%;
+    letter-spacing: 0.15em;
+    margin: 45px auto 0;
+}
+
+.two-columns__content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: calc(73vh - 102.99px);
+}
+
+.two-columns__list {
+    list-style: none;
+    font-size: 20px;
+    font-weight: 300;
+    /* line-height: 43px; */
+    letter-spacing: 0.1em;
+    text-align: left;
+    /* white-space: nowrap; */
+    padding: 0 18px;
+    margin: 0;
+}
+
+.two-columns__item {
+    margin-bottom: 20px;
+}
+
+.two-columns__item:last-child {
+    margin-bottom: 0;
+}
+
+.two-columns__time {
+    display: block;
+}
+
+.two-columns__button {
+    display: block;
+    border: none;
+    background-color: transparent;
+    color: #fff;
+    cursor: pointer;
+    font-family: Open Sans Condensed;
+    font-size: 22px;
+    font-weight: 300;
+    /* line-height: 59px; */
+    letter-spacing: 0.1em;
+    text-align: center;
+    margin-bottom: 20px;
+    text-decoration: underline;
+    text-underline-position: under;
+    transition: 0.5s;
+}
+
+.two-columns__button:hover {
+    font-size: 24px;
+    transition: 0.5s;
+}
+
+.two-columns__paragraphs {
+    list-style: none;
+    font-size: 20px;
+    font-weight: 300;
+    /* line-height: 43px; */
+    letter-spacing: 0.1em;
+    text-align: left;
+    /* white-space: nowrap; */
+    padding: 0 18px;
+    margin: 0;
+}
+
+.two-columns__paragraph {
+    font-size: 20px;
+    line-height: 100%;
+    width: 100%;
+    margin-top: 0;
+}
+
+.two-columns__paragraph:last-child {
+    margin-bottom: 0;
+}
+
+.two-columns__photos {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 80px 20px;
+    flex-wrap: wrap;
+}
+
+.two-columns__photo-item {
+    background-image: url(../images/scientific-conference.png);
+    width: 248px;
+    height: 198px;
+    background-size: cover;
+}
+
+.two-columns__time-photo{
+    display: block;
+    flex-basis: 100%;
+    list-style: none;
+    font-size: 20px;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+}
+
+.publications__footer {
+    font-family: 'Open Sans Condensed';
+    text-align: center;
+    color: #fff;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 140%;
+    letter-spacing: 0.1em;
+    opacity: 0.4;
+    margin: 50px 0 0 0;
+}
