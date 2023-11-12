@@ -1,7 +1,10 @@
 FROM node:19-alpine
-WORKDIR /client-app
-COPY . .
-RUN npm run build
+
+WORKDIR /ckmz/client-app/
+
+COPY package*.json /ckmz/client-app/
 RUN npm install
-EXPOSE 3000
+
+COPY . /ckmz/client-app/
+
 CMD ["npm", "start"]
