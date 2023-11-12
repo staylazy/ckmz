@@ -5,14 +5,14 @@ services:
     ports:
       - '5432:5432'
     healthcheck: 
-      test: ["CMD-SHELL", "pg_isready -U user"]
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 5s
       timeout: 5s
       retries: 5
     environment:
-      - POSTGRES_PASSWORD=zxcghouls
-      - POSTGRES_USER=user
-      - POSTGRES_DB=ckmz_database
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=postgres
     volumes:
       - ./data/db:/var/lib/postgresql/data/
   web:
@@ -29,7 +29,10 @@ services:
       - db 
     volumes:
       - ./api:/api
-    command: bash -c "python manage.py makemigrations; python manage.py migrate; python manage.py runserver 0.0.0.0:8000"
+    command: bash -c "python manage.py collectstatic --noinput; 
+                      python manage.py makemigrations; 
+                      python manage.py migrate; 
+                      python manage.py runserver 0.0.0.0:8000"
     depends_on:
       db:
         condition: service_healthy

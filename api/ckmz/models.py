@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse
 
-class user(models.Model):
+class User(models.Model):
     id_user = models.AutoField('user', on_delete=models.CASCADE, primary_key=True)
     login = models.CharField(max_length=32, unique=True)
     email = models.EmailField(max_length=128, unique=True)
@@ -19,3 +19,6 @@ class user(models.Model):
 
     def __str__(self):
         return self.name
+
+class Photo(models.Model):
+    id_photo = models.AutoField('photo', on_delete=models.CASCADE, primary_key=True)

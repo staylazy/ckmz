@@ -1,7 +1,15 @@
 import Navbar from '../components/NavBar';
 import '../css/Publications.css';
+import {useState, useEffect} from 'react';
 
 export function Publications() {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    fetch('http://localhost:8000/test/')
+      .then(res => res.json())
+      .then(data => setData(data.data));
+  })
   return (
     <div class='publications'>
       <Navbar />
@@ -12,7 +20,8 @@ export function Publications() {
             <div class='two-columns__content'>
               <ul class='two-columns__list'>
                 <li class='two-columns__item'>
-                  Пожары в Томских лесах!
+                  {/* Пожары в Томских лесах! */}
+                  {data}
                   <time class='two-columns__time'>03/02/2023</time>
                 </li>
                 <li class='two-columns__item'>
