@@ -10,6 +10,12 @@ services:
       - POSTGRES_DB=ckmz_database
     volumes:
       - ./data/db:/var/lib/postgresql/data/
+  web:
+    build: ./client-app
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./client-app:/client-app
   api:
     build: ./api        
     ports:
@@ -17,10 +23,5 @@ services:
     volumes:
       - ./api:/api
     command: bash -c "python manage.py runserver 0.0.0.0:8000"
-
-  web:
-    build: ./client-app
-    ports:
-      - "3000:3000"
-    volumes:
-      - ./client-app:/client-app
+    depends_on:
+      - db

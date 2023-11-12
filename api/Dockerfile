@@ -6,6 +6,6 @@ WORKDIR /ckmz/api
 
 RUN pip install django django-rest-framework django-cors-headers psycopg2
 
-COPY . . 
+COPY . /ckmz/api/
 
 EXPOSE 8000

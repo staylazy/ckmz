@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-)zg8l0^*l6ivg9#4a#%f!a(m*ks1y)(^%lqb+r8e459+boc=ck
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '0.0.0.0'
+    '0.0.0.0',
+    'localhost'
 ]
 
 # Application definition
@@ -56,6 +57,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware'
 ]
+
+CORS_ALLOW_ALL_ORIGINS=True
 
 ROOT_URLCONF = 'ckmz.urls'
 
@@ -87,7 +90,7 @@ DATABASES = {
         'NAME': 'ckmz_database',
         'USER': 'user',
         'PASSWORD': 'zxcghouls',
-        'HOST': 'localhost',
+        'HOST': 'db',
         'PORT': '5432',
     }
 }
