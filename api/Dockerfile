@@ -4,7 +4,7 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /ckmz/api
 
-RUN pip install django django-rest-framework django-cors-headers psycopg2
+RUN pip install django django-rest-framework django-cors-headers psycopg2 django-db-connection-retrier
 
 COPY . /ckmz/api/
 
