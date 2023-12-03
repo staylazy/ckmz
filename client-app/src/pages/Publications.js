@@ -1,4 +1,3 @@
-import Navbar from '../components/NavBar';
 import '../css/Publications.css';
 import {useState, useEffect} from 'react';
 
@@ -12,7 +11,6 @@ export function Publications() {
   })
   return (
     <div class='publications'>
-      <Navbar />
       <main class="content">
         <section class='news'>
           <div class="two-columns">

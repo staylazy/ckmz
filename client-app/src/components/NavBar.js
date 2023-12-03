@@ -11,6 +11,7 @@ function Navbar() {
                     <li><a href="#">ПРОГРАММЫ</a></li>
                     <li><a href="#">УЧЁБА</a></li>
                     <li><a href={'/Publications'}>ПУБЛИКАЦИИ</a></li>
+                    <li><a href={'/System'}>МОДЕЛЬ</a></li>
                     <li><a href="#">КОНТАКТЫ</a></li>
                 </ul>
             </nav>
