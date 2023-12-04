@@ -3,4 +3,13 @@
     border-radius: 5px;
     margin-left: 5%;
     margin-top: 5%;
+    min-width: auto;
+}
+
+.test {
+    color: white;
+    font-style: normal;
+    text-transform: uppercase;
+    text-decoration: none;
+    
 }

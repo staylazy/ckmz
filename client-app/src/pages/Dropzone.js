@@ -1,25 +1,43 @@
-import React, { useCallback } from 'react';
-import { useDropzone } from 'react-dropzone';
+import React, { useState, useEffect } from 'react';
 import '../css/Dropzone.css';
 
-export function Dropzone() {
-  const onDrop = useCallback((acceptedFiles) => {
-    acceptedFiles.forEach((file) => {
-      const reader = new FileReader();
-      reader.onload = () => {
-        console.log('Имя файла:', file.name);
-        console.log('Содержимое файла:', reader.result); // временно
-      };
-      reader.readAsDataURL(file);
-    });
+const Dropzone = () => {
+  const [fileList, setFileList] = useState([]);
+
+  useEffect(() => {
+    async function fetchFiles() {
+      try {
+        const response = await fetch('http://localhost:8000/api/get_uploaded_files/'); // Replace with your backend API endpoint
+        const data = await response.json();
+        console.log(data)
+        setFileList(data.files || []);
+      } catch (error) {
+        console.error('Error fetching files:', error);
+      }
+    }
+    fetchFiles();
   }, []);
 
-  const { getRootProps, getInputProps } = useDropzone({ onDrop });
+  const renderFiles = (files) => {
+    if (files.length === 0) {
+      return <p>No files available</p>;
+    }
+
+    return (
+      <ul >
+        {files.map((file, index) => (
+          <li className='test' key={index}><a href='http://localhost:8000/test'>{file}</a></li>
+        ))}
+      </ul>
+    );
+  };
 
   return (
-    <div className='dropzone' {...getRootProps()}>
-      <input {...getInputProps()} />
-      <p className='uploadClass'>Загрузить файл</p>
+    <div>
+      <h2 className='test'>File System</h2>
+      {renderFiles(fileList)}
     </div>
   );
-}
+};
+
+export default Dropzone;

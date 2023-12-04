@@ -20,5 +20,5 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('test/', views.send_some_data)
+    path('api/get_uploaded_files/', views.get_uploaded_files, name='get_uploaded_files'),
 ]

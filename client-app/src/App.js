@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Home } from './pages/Home';
 import { Publications } from './pages/Publications';
-import { Dropzone } from './pages/Dropzone';
+import  Dropzone  from './pages/Dropzone';
 import  System  from './pages/System';
 
 function App() {

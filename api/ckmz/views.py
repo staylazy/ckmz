@@ -1,8 +1,9 @@
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
+from django.http import JsonResponse
+import os
 
-@api_view(['GET'])
-def send_some_data(request):
-    return Response({
-        "data": "Hello from django backend"
-    })
+def get_uploaded_files(request):
+    directory = 'uploadedFiles/uploadedFiles'
+    print(os.getcwd())
+    files = os.listdir(directory)
+    print(files)
+    return JsonResponse({'files': files})
