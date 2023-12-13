@@ -7,9 +7,9 @@ const Dropzone = () => {
   useEffect(() => {
     async function fetchFiles() {
       try {
-        const response = await fetch('http://localhost:8000/api/get_uploaded_files/'); // Replace with your backend API endpoint
+        const response = await fetch('http://localhost:8000/api/get_uploaded_files/');
         const data = await response.json();
-        console.log(data)
+        console.log(data);
         setFileList(data.files || []);
       } catch (error) {
         console.error('Error fetching files:', error);
@@ -18,24 +18,27 @@ const Dropzone = () => {
     fetchFiles();
   }, []);
 
-  const renderFiles = (files) => {
-    if (files.length === 0) {
-      return <p>No files available</p>;
-    }
-
-    return (
-      <ul >
-        {files.map((file, index) => (
-          <li className='test' key={index}><a href='http://localhost:8000/test'>{file}</a></li>
-        ))}
-      </ul>
-    );
-  };
-
   return (
-    <div>
-      <h2 className='test'>File System</h2>
-      {renderFiles(fileList)}
+    <div className='main_div'>
+      <p className='title'>Список литературы:</p>
+      <ul>
+        {fileList.map((file, index) => (
+          <li className='literature_list' key={index}>
+            <a href={`http://localhost:8000/api/download_file/${file}`} download>{file}</a>
+          </li>
+        ))}
+        <li className='test_text'>Lorem</li>
+        <li className='test_text'>Lorem</li>
+        <li className='test_text'>Lorem</li>
+        <li className='test_text'>Lorem</li>
+        <li className='test_text'>Lorem</li>
+        <li className='test_text'>Lorem</li>
+        <li className='test_text'>Lorem</li>
+        <li className='test_text'>Lorem</li>
+        <li className='test_text'>Lorem</li>
+        <li className='test_text'>Lorem</li>
+      </ul>
+      <p className='soon'>Скоро здесь будут новые файлы...</p>
     </div>
   );
 };

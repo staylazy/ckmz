@@ -272,8 +272,8 @@ let rotateFactor = 0.1;
 
 // slider stuff (for orbit and rotation)
 // document.getElementById("myRange").step = 0.1;
-let slider = document.getElementById("myRange");
-let output = document.getElementById("demo");
+// let slider = document.getElementById("myRange");
+// let output = document.getElementById("demo");
 // output.innerHTML = slider.value;
 // Update the current slider value (each time you drag the slider handle)
 // slider.oninput = () => {
@@ -365,29 +365,29 @@ const plutoView = () => {
 	camera.lookAt(objectPosition);
 };
 
-const freeLook = () => {
-	camera.position.setZ(50);
-	camera.position.setX(200);
-	camera.position.setY(20);
-	const controls = new OrbitControls(camera, renderer.domElement);
-	controls.minDistance = 50;
-	controls.maxDistance = 900;
-	controls.enabled = true;
-	const minPan = new THREE.Vector3(-400, -400, -400);
-	const maxPan = new THREE.Vector3(400, 400, 400);
+// const freeLook = () => {
+// 	camera.position.setZ(50);
+// 	camera.position.setX(200);
+// 	camera.position.setY(20);
+// 	const controls = new OrbitControls(camera, renderer.domElement);
+// 	controls.minDistance = 50;
+// 	controls.maxDistance = 900;
+// 	controls.enabled = true;
+// 	const minPan = new THREE.Vector3(-400, -400, -400);
+// 	const maxPan = new THREE.Vector3(400, 400, 400);
 
-	var _v = new THREE.Vector3();
+// 	var _v = new THREE.Vector3();
 
-	controls.addEventListener("change", function () {
-		_v.copy(controls.target);
-		controls.target.clamp(minPan, maxPan);
-		_v.sub(controls.target);
-		camera.position.sub(_v);
-	});
-};
+// 	controls.addEventListener("change", function () {
+// 		_v.copy(controls.target);
+// 		controls.target.clamp(minPan, maxPan);
+// 		_v.sub(controls.target);
+// 		camera.position.sub(_v);
+// 	});
+// };
 
 // flags to switch between planet views
-let freeCheck = false;
+// let freeCheck = false;
 let mercuryCheck = false;
 let venusCheck = false;
 let earthCheck = false;
@@ -398,82 +398,82 @@ let uranusCheck = false;
 let neptuneCheck = false;
 let plutoCheck = false;
 
-const freeLookInstructions = () => {
-	// if free look is clicked, display movement container
-	document.getElementById("movement-container").style.display = "flex";
-};
+// const freeLookInstructions = () => {
+// 	// if free look is clicked, display movement container
+// 	document.getElementById("movement-container").style.display = "flex";
+// };
 
 // api call to get planet info
-const getInfo = (index) => {
-	// fetch data from api and set state
-	fetch("https://api.le-systeme-solaire.net/rest/bodies/")
-		.then((response) => response.json())
-		.then((data) => {
-			document.getElementById("movement-container").style.display = "none";
-			// console.log(data.bodies);
-			// create card with data
-			let card = document.createElement("div");
-			card.classList.add("card");
-			let cardBody = document.createElement("div");
-			cardBody.classList.add("card-body");
-			let cardTitle = document.createElement("h2");
-			cardTitle.classList.add("card-title");
-			cardTitle.innerHTML = "Name: " + data.bodies[index].englishName;
-			let cardText = document.createElement("p");
-			cardText.classList.add("card-text");
-			cardText.innerHTML = "Body Type: " + data.bodies[index].bodyType;
-			let cardText2 = document.createElement("p");
-			cardText2.classList.add("card-text");
-			if (data.bodies[index].moons == null) {
-				cardText2.innerHTML = "Moons: 0";
-			} else {
-				cardText2.innerHTML = "Moons: " + data.bodies[index].moons.length;
-			}
-			let cardText3 = document.createElement("p");
-			cardText3.classList.add("card-text");
-			cardText3.innerHTML =
-				"Mass: " + data.bodies[index].mass.massValue + " * 10^" + data.bodies[index].mass.massExponent + " kg";
-			let cardText4 = document.createElement("p");
-			cardText4.classList.add("card-text");
-			cardText4.innerHTML = "Density: " + data.bodies[index].density + " g/cm^3";
-			let cardText5 = document.createElement("p");
-			cardText5.classList.add("card-text");
-			cardText5.innerHTML = "Gravity: " + data.bodies[index].gravity + " m/s^2";
-			let cardText6 = document.createElement("p");
-			cardText6.classList.add("card-text");
-			cardText6.innerHTML = "Escape Speed: " + data.bodies[index].escape + " m/s";
-			let cardText7 = document.createElement("p");
-			cardText7.classList.add("card-text");
-			cardText7.innerHTML = "Mean Radius: " + data.bodies[index].meanRadius + " km";
-			let cardText8 = document.createElement("p");
-			cardText8.classList.add("card-text");
-			cardText8.innerHTML = "Sideral Orbit: " + data.bodies[index].sideralOrbit + " days";
-			let cardText9 = document.createElement("p");
-			cardText9.classList.add("card-text");
-			cardText9.innerHTML = "Sideral Rotation: " + data.bodies[index].sideralRotation + " hours";
-			let cardText10 = document.createElement("p");
-			cardText10.classList.add("card-text");
-			cardText10.innerHTML = "Average Temperature: " + data.bodies[index].avgTemp + " K";
-			cardBody.appendChild(cardTitle);
-			card.appendChild(cardBody);
-			cardBody.appendChild(cardText);
-			cardBody.appendChild(cardText2);
-			cardBody.appendChild(cardText3);
-			cardBody.appendChild(cardText4);
-			cardBody.appendChild(cardText5);
-			cardBody.appendChild(cardText6);
-			cardBody.appendChild(cardText7);
-			cardBody.appendChild(cardText8);
-			cardBody.appendChild(cardText9);
-			cardBody.appendChild(cardText10);
-			document.getElementById("card-container").appendChild(card);
-		})
-		.catch((error) => console.log(error));
-	// remove all cards if they exist
-	if (document.getElementById("card-container").childNodes.length > 0) {
-		document.getElementById("card-container").innerHTML = "";
-	}
-};
+// const getInfo = (index) => {
+// 	// fetch data from api and set state
+// 	fetch("https://api.le-systeme-solaire.net/rest/bodies/")
+// 		.then((response) => response.json())
+// 		.then((data) => {
+// 			document.getElementById("movement-container").style.display = "none";
+// 			// console.log(data.bodies);
+// 			// create card with data
+// 			let card = document.createElement("div");
+// 			card.classList.add("card");
+// 			let cardBody = document.createElement("div");
+// 			cardBody.classList.add("card-body");
+// 			let cardTitle = document.createElement("h2");
+// 			cardTitle.classList.add("card-title");
+// 			cardTitle.innerHTML = "Name: " + data.bodies[index].englishName;
+// 			let cardText = document.createElement("p");
+// 			cardText.classList.add("card-text");
+// 			cardText.innerHTML = "Body Type: " + data.bodies[index].bodyType;
+// 			let cardText2 = document.createElement("p");
+// 			cardText2.classList.add("card-text");
+// 			if (data.bodies[index].moons == null) {
+// 				cardText2.innerHTML = "Moons: 0";
+// 			} else {
+// 				cardText2.innerHTML = "Moons: " + data.bodies[index].moons.length;
+// 			}
+// 			let cardText3 = document.createElement("p");
+// 			cardText3.classList.add("card-text");
+// 			cardText3.innerHTML =
+// 				"Mass: " + data.bodies[index].mass.massValue + " * 10^" + data.bodies[index].mass.massExponent + " kg";
+// 			let cardText4 = document.createElement("p");
+// 			cardText4.classList.add("card-text");
+// 			cardText4.innerHTML = "Density: " + data.bodies[index].density + " g/cm^3";
+// 			let cardText5 = document.createElement("p");
+// 			cardText5.classList.add("card-text");
+// 			cardText5.innerHTML = "Gravity: " + data.bodies[index].gravity + " m/s^2";
+// 			let cardText6 = document.createElement("p");
+// 			cardText6.classList.add("card-text");
+// 			cardText6.innerHTML = "Escape Speed: " + data.bodies[index].escape + " m/s";
+// 			let cardText7 = document.createElement("p");
+// 			cardText7.classList.add("card-text");
+// 			cardText7.innerHTML = "Mean Radius: " + data.bodies[index].meanRadius + " km";
+// 			let cardText8 = document.createElement("p");
+// 			cardText8.classList.add("card-text");
+// 			cardText8.innerHTML = "Sideral Orbit: " + data.bodies[index].sideralOrbit + " days";
+// 			let cardText9 = document.createElement("p");
+// 			cardText9.classList.add("card-text");
+// 			cardText9.innerHTML = "Sideral Rotation: " + data.bodies[index].sideralRotation + " hours";
+// 			let cardText10 = document.createElement("p");
+// 			cardText10.classList.add("card-text");
+// 			cardText10.innerHTML = "Average Temperature: " + data.bodies[index].avgTemp + " K";
+// 			cardBody.appendChild(cardTitle);
+// 			card.appendChild(cardBody);
+// 			cardBody.appendChild(cardText);
+// 			cardBody.appendChild(cardText2);
+// 			cardBody.appendChild(cardText3);
+// 			cardBody.appendChild(cardText4);
+// 			cardBody.appendChild(cardText5);
+// 			cardBody.appendChild(cardText6);
+// 			cardBody.appendChild(cardText7);
+// 			cardBody.appendChild(cardText8);
+// 			cardBody.appendChild(cardText9);
+// 			cardBody.appendChild(cardText10);
+// 			document.getElementById("card-container").appendChild(card);
+// 		})
+// 		.catch((error) => console.log(error));
+// 	// remove all cards if they exist
+// 	if (document.getElementById("card-container").childNodes.length > 0) {
+// 		document.getElementById("card-container").innerHTML = "";
+// 	}
+// };
 
 // document.getElementById("look").addEventListener("click", () => {
 // 	freeLookInstructions();

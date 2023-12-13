@@ -25,14 +25,20 @@ services:
     build: ./api        
     ports:
       - "8000:8000"
-    # links:
-    #   - db 
     volumes:
       - ./api:/api
-    command: bash -c "python manage.py collectstatic --noinput; 
-                      python manage.py makemigrations; 
-                      python manage.py migrate; 
-                      python manage.py runserver 0.0.0.0:8000"
+    environment:
+      - DJANGO_SUPERUSER_PASSWORD=123qweZXC
+    command: >
+      bash -c "python manage.py collectstatic --noinput &&
+                python manage.py makemigrations &&
+                python manage.py migrate &&
+                
+                python manage.py runserver 0.0.0.0:8000"
+    #вставить в 36 строку (если не редачился этот файл) для создания сюзера
+    # python manage.py createsuperuser --no-input --username superuser --email qwerty@gmail.com &&
+
+
     # depends_on:
     #   db:
     #     condition: service_healthy

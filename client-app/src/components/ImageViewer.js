@@ -19,7 +19,7 @@ const ImageViewer = () => {
         justifyContent: "center",
         height: "100vh",
       }}>
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <div style={{ display: "flex", justifyContent: "space-between"  }}>
                 <img src={photos[0]} alt="photo" width="400px" height="200px"/>
                 <img src={photos[1]} alt="photo" width="400px" height="200px"/>
                 <img src={photos[2]} alt="photo" width="400px" height="200px"/>

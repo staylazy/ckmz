@@ -21,4 +21,5 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/get_uploaded_files/', views.get_uploaded_files, name='get_uploaded_files'),
+    path('api/download_file/<str:file_name>/', views.download_file, name='download_file'),
 ]
